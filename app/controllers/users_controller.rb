@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create params[:user]
+    redirect_to user_path @user
   end
 
   def new
@@ -13,7 +14,7 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    @user = User.last
   end
 
 end
