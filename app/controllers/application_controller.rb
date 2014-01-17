@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  # include Twilioer
+  include Tw
 
   def make_message
     # google civic info api ish

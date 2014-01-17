@@ -6,12 +6,16 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create params[:user]
-    @phone = "+#{@user.phonenumber}"
-    p '*' * 50
-    p @user.name
-    p @phone
-    Twilioer.send_message @phone, @user.name
-    redirect_to user_path @user
+    if @user.present?
+      @phone = "+#{@user.phonenumber}"
+      p '*' * 50
+      p @user.name
+      p @phone
+      send_message @phone, @user.name
+      redirect_to user_path @user
+    else
+      redirect_to new_user_path
+    end
   end
 
   def new
