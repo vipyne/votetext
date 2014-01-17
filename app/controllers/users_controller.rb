@@ -8,9 +8,6 @@ class UsersController < ApplicationController
     @user = User.create params[:user]
     if @user.present?
       @phone = "+#{@user.phonenumber}"
-      p '*' * 50
-      p @user.name
-      p @phone
       send_message @phone, @user.name
       redirect_to user_path @user
     else
