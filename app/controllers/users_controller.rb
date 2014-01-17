@@ -6,6 +6,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create params[:user]
+    @phone = '+#{@user.phonenumber}'
+    send_message @phone, @user.to_s
     redirect_to user_path @user
   end
 
