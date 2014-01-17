@@ -9,11 +9,7 @@ module Tw
   end
 
   def send_message to, message
-    p 'got to send_message'
     client = self.make_client
-    p '&&&&&&&&&'
-    p client
-    p '&&&&&&&&&'
     client.account.messages.create({
       :from => '+14846794637',
       :to => to,
