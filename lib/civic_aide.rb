@@ -11,7 +11,7 @@ module CivicAide
     all_elections = elections["elections"]
     all_elections.find_all do |election|
       name = election["name"]
-      if /#{state}/.match name || /#{city}/.match name
+      if /#{state}/.match("#{name}") || /#{city}/.match("#{name}")
         users_elections << election["id"].to_i
       end
     end

@@ -4,17 +4,19 @@
     <%= form_for @user, :method => 'post' do |f| %>
        <%= f.label :name %>
        <%= f.text_field :name, :value => "betty white" %>
-       <%= f.label :address_line1 %>
+       <%= f.label "phone number" %>
+       <%= f.text_field :phonenumber, :value => "16104204483" %>
+       <%= f.label "address line 1" %>
        <%= f.text_field :address_line1 %>
-       <%= f.label :address_line2 %>
+       <%= f.label "address line 2" %>
        <%= f.text_field :address_line2 %>
-       <%= f.label :address_line3 %>
+       <%= f.label "address line 3" %>
        <%= f.text_field :address_line3 %>
        <%= f.label :city %>
        <%= f.text_field :city %>
        <%= f.label :state %>
        <%= f.text_field :state %>
-       <%= f.label :zip_code %>
+       <%= f.label "zip code" %>
        <%= f.text_field :zip_code %>
        <%= f.submit "get election texts" %>
     <% end %>
