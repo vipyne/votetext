@@ -1,5 +1,5 @@
 div.container {
-  margin: 5em;
+  margin: 4em;
   font-family: "futura-pt", futura, helvetica, arial, sans-serif;
 }
 
@@ -11,9 +11,33 @@ a:hover {
   color: red;
 }
 
-input[type="text"] {
+input {
+}
+
+input[type="text"], input[type="submit"] {
   padding: 4px;
   border-radius: .3em;
+  box-shadow: none;
+  font-family: "futura-pt", futura, helvetica, arial, sans-serif;
+  font-size: 15px;
+  margin-bottom: 9px;
+  color: gray;
+}
+
+input[type="text"] {
+  height: 100%;
+  padding-top: 7px;
+  font-size: 15px;
+  line-height: 0;/
+}
+
+input[type="submit"] {
+  color: black;
+  border-left: 0;
+  margin-left: 0;
+  border: 1px solid #ccc;
+  background-color: white;
+  padding: 6px;
 }
 
 label {
@@ -21,4 +45,5 @@ label {
 }
 
 textarea {
+  background-size: 20px;
 }
