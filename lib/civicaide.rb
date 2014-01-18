@@ -12,7 +12,7 @@ module Civicaide
     all_elections.find_all do |election|
       name = election.name
       id = election.id
-      if (/#{state}/.match(name) != nil) || (/#{city}/.match(name) != nil)
+      if /#{state}/.match(name) || /#{city}/.match(name)
         users_elections << id
       end
     end

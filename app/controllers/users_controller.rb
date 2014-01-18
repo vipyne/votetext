@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       state = params[:user][:state]
       city = params[:user][:city]
       @election_ids = get_elections state, city
-      send_message @election_ids[0]
+      send_message @election_ids[1]
       redirect_to user_path @user
     else
       redirect_to new_user_path
