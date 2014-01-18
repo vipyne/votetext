@@ -16,7 +16,6 @@ module Civicaide
         users_elections << id
       end
     end
-    p users_elections
   end
 
 end

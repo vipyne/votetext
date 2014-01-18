@@ -11,9 +11,6 @@ a:hover {
   color: red;
 }
 
-input {
-}
-
 input[type="text"], input[type="submit"] {
   padding: 4px;
   border-radius: .3em;
@@ -43,8 +40,4 @@ input[type="submit"] {
 
 label {
   margin-bottom: 2px;
-}
-
-textarea {
-  background-size: 20px;
 }
