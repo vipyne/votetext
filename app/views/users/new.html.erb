@@ -2,9 +2,21 @@
 
   <div class="new_user">
     <%= form_for @user, :method => 'post' do |f| %>
-      <%= f.text_field :name, :value => "f" %><br>
-      <%= f.text_field :phonenumber, :value => "16104204483" %><br>
-      <%= f.submit "submit" %>
+      <%= f.text_field :name, :value => "betty white" %>
+       <%= f.hidden_field :user_id, :value => current_user.id %>
+       <%= f.label :address_line1 %>
+       <%= f.text_field :address_line1 %>
+       <%= f.label :address_line2 %>
+       <%= f.text_field :address_line2 %>
+       <%= f.label :address_line3 %>
+       <%= f.text_field :address_line3 %>
+       <%= f.label :city %>
+       <%= f.text_field :city %>
+       <%= f.label :state %>
+       <%= f.text_field :state %>
+       <%= f.label :zip_code %>
+       <%= f.text_field :zip_code %>
+       <%= f.submit "get election texts" %>
     <% end %>
   </div>
 
