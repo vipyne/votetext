@@ -1,6 +1,7 @@
 <div class="container">
 
   <p>sweet.  a text will be sent to <%= @user.name %>, at <%= @user.phonenumber %> with upcoming election info.</p>
+  <p>holy shit if this works... <%= @election_ids.each { |e| e } %></p>
 
   <%= link_to "another address", new_user_path %>
 </div>

@@ -10,6 +10,7 @@ gem 'twilio-ruby'
 gem 'dotenv-rails'
 gem 'civic_aide'
 gem 'foundation'
+gem 'hashie'
 
 group :test, :development do
   gem "better_errors"

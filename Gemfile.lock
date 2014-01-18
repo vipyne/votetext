@@ -159,6 +159,7 @@ DEPENDENCIES
   debugger
   dotenv-rails
   foundation
+  hashie
   jquery-rails
   pg
   rails (= 3.2.15)

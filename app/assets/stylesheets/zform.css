@@ -38,6 +38,7 @@ input[type="submit"] {
   border: 1px solid #ccc;
   background-color: white;
   padding: 6px;
+  outline: none;
 }
 
 label {
