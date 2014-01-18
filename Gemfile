@@ -9,6 +9,7 @@ gem 'pg'
 gem 'twilio-ruby'
 gem 'dotenv-rails'
 gem 'civic_aide'
+gem 'foundation'
 
 group :test, :development do
   gem "better_errors"
