@@ -8,6 +8,16 @@ gem 'rails', '3.2.15'
 gem 'pg'
 gem 'twilio-ruby'
 gem 'dotenv-rails'
+gem 'civic_aide'
+
+group :test, :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem 'debugger'
+  gem 'awesome_print'
+  gem "rspec-rails"
+  gem 'shoulda-matchers'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
