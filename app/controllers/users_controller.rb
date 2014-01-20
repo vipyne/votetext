@@ -1,12 +1,11 @@
 class UsersController < ApplicationController
 
   def index
-
+    redirect_to new_user_path
   end
 
   def create
     @user = User.create params[:user]
-    p @user
     if @user.present?
       login @user
       state = params[:user][:state]

@@ -104,6 +104,7 @@ input[type="submit"] {
 
 label {
   margin-bottom: 2px;
+  margin-right: 14em;
   border: 1px solid #ccc;
   border-radius: .3em;
   padding: .4em;
