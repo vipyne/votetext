@@ -1,6 +1,20 @@
 div.container {
   margin: 4em;
   font-family: "futura-pt", futura, helvetica, arial, sans-serif;
+  margin-top: 2em;
+}
+
+h1 {
+  font-family: "futura-pt", futura, helvetica, arial, sans-serif;
+  margin-left: 64px;
+  margin-top: 30px;
+  font-size: 47px;
+}
+
+h3 {
+  margin-left: 50px;
+  font-size: 24px;
+  font-family: "futura-pt", futura, helvetica, arial, sans-serif;
 }
 
 a {
@@ -23,6 +37,7 @@ input[type="text"], input[type="submit"] {
 
 input[type="text"] {
   height: 100%;
+  width: 50%;
   padding-top: 7px;
   font-size: 15px;
   line-height: 0;/
@@ -36,8 +51,13 @@ input[type="submit"] {
   background-color: white;
   padding: 6px;
   outline: none;
+  margin-left: 18.5%;
+  margin-right: 18.5%;
+
 }
+
 
 label {
   margin-bottom: 2px;
 }
+
