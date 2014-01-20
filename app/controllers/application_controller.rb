@@ -4,8 +4,8 @@ class ApplicationController < ActionController::Base
   include Tw
   include Civicaide
 
-  def make_message
-    # google civic info api ish
-  end
+  # def make_message
+  #   # google civic info api ish
+  # end
 
 end
