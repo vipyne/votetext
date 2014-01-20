@@ -1,20 +1,58 @@
+.all {
+  position: relative;
+}
+
 div.container {
-  margin: 4em;
+  margin: 3em;
+  margin-top: 1.5em;
   font-family: "futura-pt", futura, helvetica, arial, sans-serif;
-  margin-top: 2em;
+  display: inline-block;
+}
+
+div.explain {
+  float: left;
+  margin: 3em;
+  margin-top: 1.5em;
+  margin-right: -2em;
+  margin-bottom: 0;
+  font-family: "futura-pt", futura, helvetica, arial, sans-serif;
+  width: 270px;
+}
+
+div.heading {
+  background-color: black;
+  padding: 1px;
 }
 
 h1 {
   font-family: "futura-pt", futura, helvetica, arial, sans-serif;
-  margin-left: 64px;
-  margin-top: 30px;
-  font-size: 47px;
+  margin: 0;
+  margin-left: 20px;
+  margin-top: 10px;
+  font-size: 27px;
+  color: white;
+  display: inline-block;
+}
+
+li {
+  width: 100%;
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  display: inline;
+  margin: 0;
+  padding: 0;
 }
 
 h3 {
-  margin-left: 50px;
-  font-size: 24px;
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 14px;
   font-family: "futura-pt", futura, helvetica, arial, sans-serif;
+  color: white;
 }
 
 a {
@@ -32,32 +70,51 @@ input[type="text"], input[type="submit"] {
   font-family: "futura-pt", futura, helvetica, arial, sans-serif;
   font-size: 15px;
   margin-bottom: 9px;
-  color: gray;
+  color: rgba(50,50,50,.4)
 }
 
 input[type="text"] {
   height: 100%;
-  width: 50%;
+  width: 100%;
   padding-top: 7px;
   font-size: 15px;
   line-height: 0;/
+  margin: .4em;
 }
 
 input[type="submit"] {
   color: black;
   border-left: 0;
-  margin-left: 0;
   border: 1px solid #ccc;
   background-color: white;
   padding: 6px;
   outline: none;
-  margin-left: 18.5%;
-  margin-right: 18.5%;
-
+  margin-right: 27%;
+  margin-left: 27%;
+  position: absolute;
 }
-
 
 label {
   margin-bottom: 2px;
+  border: 1px solid #ccc;
+  border-radius: .3em;
+  padding: .4em;
+  padding-bottom: 2em;
+  margin-bottom: -2em;
 }
 
+div.new_user {
+  position: relative;
+  margin-top: 0;
+}
+
+form {
+  position: relative;
+}
+
+@media only screen and (max-width: 320px) {
+  input[type="submit"] {
+    margin-right: 23%;
+    margin-left: 23%;
+  }
+}
