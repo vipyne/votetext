@@ -16,6 +16,11 @@ module Civicaide
         users_elections << id
       end
     end
+    users_elections
+  end
+
+  def local_elections id address
+    # google civic api / need to write algorithm
   end
 
 end

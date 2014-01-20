@@ -63,6 +63,14 @@ a:hover {
   color: red;
 }
 
+p {
+  margin-bottom: 10px;
+}
+
+span {
+  color: rgba(50,50,50,.4);
+}
+
 input[type="text"], input[type="submit"] {
   padding: 4px;
   border-radius: .3em;
@@ -70,7 +78,7 @@ input[type="text"], input[type="submit"] {
   font-family: "futura-pt", futura, helvetica, arial, sans-serif;
   font-size: 15px;
   margin-bottom: 9px;
-  color: rgba(50,50,50,.4)
+  color: rgba(50,50,50,.4);
 }
 
 input[type="text"] {
@@ -116,5 +124,9 @@ form {
   input[type="submit"] {
     margin-right: 23%;
     margin-left: 23%;
+  }
+
+  p {
+  /*margin-bottom: 5px;*/
   }
 }
