@@ -6,12 +6,23 @@
   <%= javascript_include_tag "application" %>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.0.2/js/foundation.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.3/normalize.min.css"></script>
-
   <%= csrf_meta_tags %>
-</head>
-<body>
+  <meta name="viewport" content="width=device-width">
 
-<%= yield %>
+</head>
+<body class="all">
+  <div class="heading">
+    <ul>
+      <li>
+        <h1>untitled vote text project</h1>
+      </li>
+      <li>
+        <h3>{working with Google Civic Info and Twilio APIs}</h3>
+      </li>
+    </ul>
+  </div>
+
+  <%= yield %>
 
 </body>
 </html>
