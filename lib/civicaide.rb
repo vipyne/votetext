@@ -26,6 +26,13 @@ module Civicaide
     ids.each do |id|
       # address hard code for now
       elec = client.election(id).at('810 Grand Street, Brooklyn, NY 11211')
+      election_name = elec["election"]
+      if election_name
+        office = election_name["name"]
+          if office
+            office_title = office
+          end
+        end
       contests = elec["contests"]
       if contests
         names = contests[0]["candidates"]
@@ -34,7 +41,7 @@ module Civicaide
           names.each do |c|
             people << c.name
           end
-            candidates[id] = people
+            candidates[office_title] = people
         end
       end
     end

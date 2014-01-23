@@ -2,7 +2,7 @@
   <p>sweet.  a text will be sent to <span><%= @user.name %></span>, at <span><%= @user.phonenumber %></span> with upcoming election info.</p>
   <p>election ids matching <%= @state %>:
     <%= @election_ids.each { |e| e } %></p>
-  <p>election ids and candidates:</p>
+  <p>elections and candidates:</p>
     <p><% @show.each do |k,v| %>
       <span class="k"><%= k %> :</span>
       <% v.each do |name| %>
