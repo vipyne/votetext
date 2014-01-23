@@ -25,10 +25,9 @@ class UsersController < ApplicationController
     @state = current_user.state
     city = current_user.city
     ids = get_elections @state, city
-    @election_ids = get_elections @state, city
     @show = get_candidates @state, city
     # show_all_info ################### FOR TESTING
-    # send_message @show # @show for now... will be real info when becomes avail
+    # send_message @show
   end
 
   helper_method :current_user

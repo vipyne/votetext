@@ -1,7 +1,7 @@
 module Civicaide
 
   def make_civic_client
-    client = CivicAide::Client.new ENV["GOOGLE_API_KEY"]
+    CivicAide::Client.new ENV["GOOGLE_API_KEY"]
   end
 
   def get_elections state, city
@@ -12,6 +12,7 @@ module Civicaide
     all_elections.find_all do |election|
       name = election.name
       id = election.id
+      p election.name
       if /#{state}/.match(name) || /#{city}/.match(name)
         users_elections << id
       end

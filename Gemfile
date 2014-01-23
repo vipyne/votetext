@@ -11,6 +11,7 @@ gem 'dotenv-rails'
 gem 'civic_aide'
 gem 'foundation'
 gem 'hashie'
+gem 'chronic'
 
 group :test, :development do
   gem "better_errors"

@@ -65,14 +65,6 @@ h3 {
   color: white;
 }
 
-a {
-  color: teal;
-}
-
-a:hover {
-  color: red;
-}
-
 p {
   margin-bottom: 10px;
 }
@@ -93,6 +85,7 @@ span.v {
   font-variant: small-caps;
 }
 
+a,
 input[type="text"], input[type="submit"] {
   padding: 4px;
   border-radius: .3em;
@@ -112,6 +105,7 @@ input[type="text"] {
   margin: .4em;
 }
 
+a,
 input[type="submit"] {
   color: black;
   border-left: 0;
@@ -121,8 +115,22 @@ input[type="submit"] {
   outline: none;
   margin-right: 27%;
   margin-left: 27%;
-  position: absolute;
   cursor: pointer;
+}
+
+input[type="submit"] {
+  position: absolute;
+}
+
+a:hover,
+input[type="submit"]:hover {
+  background-color: teal;
+  color: black;
+}
+
+a:active,
+input[type="submit"]:active {
+  background-color: white;
 }
 
 label {
