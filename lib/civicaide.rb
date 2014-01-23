@@ -22,30 +22,25 @@ module Civicaide
   def get_candidates state, city
     client = self.make_civic_client
     ids = get_elections state, city
-    candidates = {}
+    election_dates = {}
     ids.each do |id|
       # address hard code for now
       elec = client.election(id).at('810 Grand Street, Brooklyn, NY 11211')
       election_name = elec["election"]
       if election_name
         office = election_name["name"]
-          if office
-            office_title = office
-          end
+        if office
+          office_title = office
         end
-      contests = elec["contests"]
-      if contests
-        names = contests[0]["candidates"]
-          if names
-          people = []
-          names.each do |c|
-            people << c.name
-          end
-            candidates[office_title] = people
+        date = election_name["election_day"]
+        if date
+          election_day = date
         end
       end
+      contests = elec["contests"]
+      election_dates[election_day] = office_title
     end
-    candidates
+    election_dates
   end
 
   #################################### FOR TESTING

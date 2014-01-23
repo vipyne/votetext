@@ -1,13 +1,14 @@
 <div class="explain">
-  <p>sweet.  a text will be sent to <span><%= @user.name %></span>, at <span><%= @user.phonenumber %></span> with upcoming election info.</p>
-  <p>election ids matching <%= @state %>:
-    <%= @election_ids.each { |e| e } %></p>
-  <p>elections and candidates:</p>
-    <p><% @show.each do |k,v| %>
-      <span class="k"><%= k %> :</span>
-      <% v.each do |name| %>
-        <span class="v"><%= name %></span>
-        <% end %>
-      <% end %></p>
+  <p>sweet.  a text will be sent to <span><%= @user.name %></span>, at <span><%= @user.phonenumber %></span> with the following info:</p>
+</div>
+
+<div class="election-info">
+  <% @show.each do |k,v| %>
+  <p class="dates"><span class="k"><%= k %> :</span>
+    <span class="v"><%= v %></span></p>
+    <% end %>
+</div>
+
+<div class="explain">
   <%= link_to "another address", new_user_path %>
 </div>

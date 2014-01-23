@@ -19,6 +19,16 @@ div.explain {
   width: 270px;
 }
 
+div.election-info {
+  float: left;
+  margin: 3em;
+  margin-top: .5em;
+  margin-right: -2em;
+  margin-bottom: 0;
+  font-family: "futura-pt", futura, helvetica, arial, sans-serif;
+  width: 100%;
+}
+
 nav.heading {
   background-color: black;
   padding: 1px;
@@ -65,6 +75,10 @@ a:hover {
 
 p {
   margin-bottom: 10px;
+}
+
+p.dates {
+  margin: .1em;
 }
 
 span {
