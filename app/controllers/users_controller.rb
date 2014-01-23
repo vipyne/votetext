@@ -10,8 +10,6 @@ class UsersController < ApplicationController
       login @user
       state = params[:user][:state]
       city = params[:user][:city]
-      @election_ids = get_elections state, city
-      send_message @election_ids #ids for now... will be real info when becomes avail
       redirect_to user_path @user
     else
       redirect_to new_user_path
@@ -24,9 +22,13 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    state = current_user.state
+    @state = current_user.state
     city = current_user.city
-    @election_ids = get_elections state, city
+    ids = get_elections @state, city
+    @election_ids = get_elections @state, city
+    @show = display_user_info @state, city
+    # show_all_info ################### FOR TESTING
+    send_message @show # @show for now... will be real info when becomes avail
   end
 
   helper_method :current_user
