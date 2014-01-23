@@ -71,6 +71,14 @@ span {
   color: rgba(50,50,50,.4);
 }
 
+span.k {
+  font-weight: bold;
+}
+
+span.v {
+  font-variant: small-caps;
+}
+
 input[type="text"], input[type="submit"] {
   padding: 4px;
   border-radius: .3em;
