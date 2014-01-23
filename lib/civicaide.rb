@@ -19,21 +19,22 @@ module Civicaide
     users_elections
   end
 
-  def display_user_info state, city
+  def get_candidates state, city
     client = self.make_civic_client
     ids = get_elections state, city
-    office =
-    candidates = []
-    ids.each do |e|
+    candidates = {}
+    ids.each do |id|
       # address hard code for now
-      elec = client.election(e).at('810 Grand Street, Brooklyn, NY 11211')
-      con = elec["contests"]
-      if con != nil
-        names = con[0]["candidates"]
-          if names != nil
+      elec = client.election(id).at('810 Grand Street, Brooklyn, NY 11211')
+      contests = elec["contests"]
+      if contests
+        names = contests[0]["candidates"]
+          if names
+          people = []
           names.each do |c|
-            candidates << c.name
+            people << c.name
           end
+            candidates[id] = people
         end
       end
     end
