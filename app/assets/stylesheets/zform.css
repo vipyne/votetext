@@ -100,6 +100,7 @@ input[type="submit"] {
   margin-right: 27%;
   margin-left: 27%;
   position: absolute;
+  cursor: pointer;
 }
 
 label {
