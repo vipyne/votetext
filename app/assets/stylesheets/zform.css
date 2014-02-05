@@ -113,13 +113,20 @@ input[type="submit"] {
   background-color: white;
   padding: 6px;
   outline: none;
-  margin-right: 27%;
-  margin-left: 27%;
   cursor: pointer;
 }
 
 input[type="submit"] {
-  position: absolute;
+  display: inline-block;
+}
+
+a {
+  margin-right: 27%;
+  margin-left: 27%;
+}
+
+p#or {
+  display: inline-block;
 }
 
 a:hover,

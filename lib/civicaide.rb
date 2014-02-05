@@ -4,6 +4,13 @@ module Civicaide
     CivicAide::Client.new ENV["GOOGLE_API_KEY"]
   end
 
+  # def make_address address_line1, address_line2 == nil,
+  #                  address_line3 == nil,
+  #                  city, state, zip_code
+
+
+  # end
+
   def get_elections state, city
     client = self.make_civic_client
     users_elections = []
@@ -26,7 +33,7 @@ module Civicaide
     election_dates = {}
     ids.each do |id|
       # address hard code for now
-      elec = client.election(id).at('810 Grand Street, Brooklyn, NY 11211')
+      elec = client.election(id).at('810 Grand, Brooklyn, NY 11211')
       election_name = elec["election"]
       if election_name
         office = election_name["name"]
@@ -43,6 +50,10 @@ module Civicaide
     end
     election_dates
   end
+
+  # def get_reps
+  #   client.representatives.at('118 E. Main St. Carrboro, NC 27510')
+  # end
 
   #################################### FOR TESTING
   # def get_all_elections

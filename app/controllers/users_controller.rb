@@ -8,8 +8,8 @@ class UsersController < ApplicationController
     @user = User.create params[:user]
     if @user.present?
       login @user
-      state = params[:user][:state]
-      city = params[:user][:city]
+      # state = params[:user][:state]
+      # city = params[:user][:city]
       redirect_to user_path @user
     else
       redirect_to new_user_path
@@ -28,6 +28,7 @@ class UsersController < ApplicationController
     @show = get_candidates @state, city
     # show_all_info ################### FOR TESTING
     # send_message @show
+    # make_address
   end
 
   helper_method :current_user
