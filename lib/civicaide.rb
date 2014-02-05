@@ -45,6 +45,7 @@ module Civicaide
 
   def get_reps
     client = self.make_civic_client
+    # address hard code for now
     client.representatives.at('810 Grand Street, Brooklyn, NY 11211')
   end
 
