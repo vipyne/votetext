@@ -127,6 +127,8 @@ a {
 
 p#or {
   display: inline-block;
+  margin-right: 3px;
+  margin-left: 3px;
 }
 
 a:hover,
@@ -165,7 +167,8 @@ form {
     margin-left: 23%;
   }
 
-  p {
-  /*margin-bottom: 5px;*/
+  p#or {
+    margin-right: 43%;
+    margin-left: 43%;
   }
 }

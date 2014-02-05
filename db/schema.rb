@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140118025009) do
+ActiveRecord::Schema.define(:version => 20140205032807) do
 
   create_table "texts", :force => true do |t|
     t.string   "message"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20140118025009) do
     t.string   "state"
     t.string   "city"
     t.string   "zip_code"
+    t.string   "submit"
   end
 
 end
