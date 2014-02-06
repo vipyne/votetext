@@ -43,10 +43,9 @@ module Civicaide
     election_dates
   end
 
-  def get_reps
+  def get_reps address
     client = self.make_civic_client
-    # address hard code for now
-    reps = client.representatives.at('810 Grand Street, Brooklyn, NY 11211')
+    reps = client.representatives.at address
     offices = reps["offices"]
     officials = reps["officials"]
     display_all = []
@@ -76,38 +75,5 @@ module Civicaide
     display_all << other
     display_all
   end
-
-  #################################### FOR TESTING
-  # def get_all_elections
-  #   client = self.make_civic_client
-  #   elections = client.elections.all
-  #   all_elections = elections["elections"]
-  #   # p "^"*50
-  #   # p all_elections
-  # end
-
-  # def show_all_info ids
-  #   client = self.make_civic_client
-  #   # ids = get_all_elections
-  #   ids.each do |e|
-  #     elec = client.election(e.id).at('810 Grand Street, Brooklyn, NY 11211')
-  #     p ""
-  #     p "$TART #{e.id}: election"
-  #     p elec["election"]["name"]
-  #     con = elec["contests"]
-  #     if con != nil
-  #       p "! ~ #{e.id}: contest"
-  #       p con[0]["office"] unless con[0]["office"] == nil
-  #       candidates = con[0]["candidates"]
-  #         if candidates != nil
-  #         candidates.map do |c|
-  #           p c.name
-  #         end
-  #       end
-  #     end
-  #     p "END$"
-  #     p ""
-  #   end
-  # end
 
 end
