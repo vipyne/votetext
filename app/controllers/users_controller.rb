@@ -7,9 +7,10 @@ class UsersController < ApplicationController
   def create
     @user = User.create params[:user]
     if @user.present?
+      if params[:commit] == "get representatives"
+        @user.update_attributes :submit => "get representatives"
+      end
       login @user
-      state = params[:user][:state]
-      city = params[:user][:city]
       redirect_to user_path @user
     else
       redirect_to new_user_path
@@ -25,9 +26,13 @@ class UsersController < ApplicationController
     @state = current_user.state
     city = current_user.city
     ids = get_elections @state, city
-    @show = get_candidates @state, city
-    # show_all_info ################### FOR TESTING
-    # send_message @show
+    if current_user.submit == "get representatives"
+      @reps = get_reps
+    else
+      @show = get_candidates @state, city
+      # show_all_info ################### FOR TESTING
+      # send_message @show
+    end
   end
 
   helper_method :current_user

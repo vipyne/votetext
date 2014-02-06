@@ -1,13 +1,27 @@
-<div class="explain">
-  <p>sweet.  a text will be sent to <span><%= @user.name %></span>, at <span><%= @user.phonenumber %></span> with the following info:</p>
-</div>
+<% if @show %>
+  <div class="explain">
+    <p>sweet.  a text will be sent to <span><%= @user.name %></span>, at <span><%= @user.phonenumber %></span> with the following info:</p>
+  </div>
 
-<div class="election-info">
-  <% @show.each do |k,v| %>
-  <p class="dates"><span class="k"><%= k %> :</span>
-    <span class="v"><%= v %></span></p>
+  <div class="election-info">
+    <% @show.each do |k,v| %>
+      <p class="dates"><span class="k"><%= k %> :</span><span class="v"><%= v %></span></p>
     <% end %>
-</div>
+  </div>
+
+<% elsif @reps %>
+
+  <div class="explain">
+    <p><span><%= @user.name %></span>! here are your representatives (temporarily a hashie mess):</p>
+  </div>
+
+  <div class="election-info">
+    <% @reps.each do |r| %>
+      <p class="dates"><span class="v"><%= r %></span></p>
+    <% end %>
+  </div>
+
+<% end %>
 
 <div class="explain">
   <%= link_to "another address", new_user_path %>

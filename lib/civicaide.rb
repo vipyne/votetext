@@ -12,7 +12,6 @@ module Civicaide
     all_elections.find_all do |election|
       name = election.name
       id = election.id
-      p election.name
       if /#{state}/.match(name) || /#{city}/.match(name)
         users_elections << id
       end
@@ -26,7 +25,7 @@ module Civicaide
     election_dates = {}
     ids.each do |id|
       # address hard code for now
-      elec = client.election(id).at('810 Grand Street, Brooklyn, NY 11211')
+      elec = client.election(id).at('810 Grand, Brooklyn, NY 11211')
       election_name = elec["election"]
       if election_name
         office = election_name["name"]
@@ -42,6 +41,12 @@ module Civicaide
       election_dates[election_day] = office_title
     end
     election_dates
+  end
+
+  def get_reps
+    client = self.make_civic_client
+    # address hard code for now
+    client.representatives.at('810 Grand Street, Brooklyn, NY 11211')
   end
 
   #################################### FOR TESTING
