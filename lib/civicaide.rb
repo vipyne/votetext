@@ -48,23 +48,27 @@ module Civicaide
     # address hard code for now
     reps = client.representatives.at('810 Grand Street, Brooklyn, NY 11211')
     offices = reps["offices"]
+    officials = reps["officials"]
     display_all = []
     federal = {}
     state = {}
     other = {}
     offices.each do |office_id, info|
+      office = info["name"]
+      ids = info["official_ids"]
+        grr = ids.map do |id|
+          infos = officials.select do |oid, info|
+            id.downcase == oid.downcase
+          end
+          id = infos.values_at(id.downcase)
+        end
+        bah = grr.map { |n| n[0]["name"] }
       if info["level"] == "federal"
-        name = info["name"]
-        id = info["official_ids"]
-        federal[name] = id
+        federal[office] = bah
       elsif info["level"] == "state"
-        name = info["name"]
-        id = info["official_ids"]
-        state[name] = id
+        state[office] = bah
       elsif info["level"] == "other"
-        name = info["name"]
-        id = info["official_ids"]
-        other[name] = id
+        other[office] = bah
       end
     end
     display_all << federal
