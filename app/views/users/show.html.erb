@@ -12,12 +12,18 @@
 <% elsif @reps %>
 
   <div class="explain">
-    <p><span><%= @user.name %></span>! here are your representatives (temporarily a hashie mess):</p>
+    <p><span><%= @user.name %></span>! these people represent you:</p>
   </div>
 
   <div class="election-info">
-    <% @reps.each do |r| %>
-      <p class="dates"><span class="v"><%= r %></span></p>
+    <% @reps.each do |level| %>
+      <% level.each do |office, person| %>
+        <p class="dates"><span class="k"><%= office %> :</span>
+          <% person.each do |name| %>
+          <span class="n">   <%= name %></span>
+        <% end %>
+      </p>
+      <% end %>
     <% end %>
   </div>
 

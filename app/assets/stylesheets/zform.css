@@ -81,8 +81,13 @@ span.k {
   font-weight: bold;
 }
 
+span.n,
 span.v {
   font-variant: small-caps;
+}
+
+span.n {
+  display: inline-block;
 }
 
 a,

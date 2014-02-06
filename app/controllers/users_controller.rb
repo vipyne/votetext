@@ -27,11 +27,9 @@ class UsersController < ApplicationController
     city = current_user.city
     ids = get_elections @state, city
     if current_user.submit == "get representatives"
-      @reps = get_reps
+      @reps = get_reps current_user.full_address
     else
       @show = get_candidates @state, city
-      # show_all_info ################### FOR TESTING
-      # send_message @show
     end
   end
 
