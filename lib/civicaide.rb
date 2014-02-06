@@ -46,7 +46,31 @@ module Civicaide
   def get_reps
     client = self.make_civic_client
     # address hard code for now
-    client.representatives.at('810 Grand Street, Brooklyn, NY 11211')
+    reps = client.representatives.at('810 Grand Street, Brooklyn, NY 11211')
+    offices = reps["offices"]
+    display_all = []
+    federal = {}
+    state = {}
+    other = {}
+    offices.each do |office_id, info|
+      if info["level"] == "federal"
+        name = info["name"]
+        id = info["official_ids"]
+        federal[name] = id
+      elsif info["level"] == "state"
+        name = info["name"]
+        id = info["official_ids"]
+        state[name] = id
+      elsif info["level"] == "other"
+        name = info["name"]
+        id = info["official_ids"]
+        other[name] = id
+      end
+    end
+    display_all << federal
+    display_all << state
+    display_all << other
+    display_all
   end
 
   #################################### FOR TESTING

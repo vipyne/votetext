@@ -16,8 +16,10 @@
   </div>
 
   <div class="election-info">
-    <% @reps.each do |r| %>
-      <p class="dates"><span class="v"><%= r %></span></p>
+    <% @reps.each do |level| %>
+      <% level.each do |office, id| %>
+        <p class="dates"><span class="k"><%= office %> :</span><span class="v"><%= id %></span></p>
+      <% end %>
     <% end %>
   </div>
 
