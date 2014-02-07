@@ -1,32 +1,37 @@
 <% if @show %>
-  <div class="explain">
-    <p>sweet.  a text will be sent to <span><%= @user.name %></span>, at <span><%= @user.phonenumber %></span> with the following info:</p>
-  </div>
+<div class="explain">
+  <p>sweet.  a text will be sent to <span><%= @user.name %></span>, at <span><%= @user.phonenumber %></span> with the following info:</p>
+</div>
 
-  <div class="election-info">
-    <% @show.each do |k,v| %>
-      <p class="dates"><span class="k"><%= k %> :</span><span class="v"><%= v %></span></p>
-    <% end %>
-  </div>
+<div class="election-info">
+  <% @show.each do |k,v| %>
+  <p class="dates"><span class="k"><%= k %> :</span><span class="v"><%= v %></span></p>
+  <% end %>
+</div>
 
 <% elsif @reps %>
 
-  <div class="explain">
-    <p><span><%= @user.name %></span>! these people represent you:</p>
-  </div>
+<div class="explain">
+  <p><span><%= @user.name %></span>! these people represent you:</p>
+</div>
 
-  <div class="election-info">
-    <% @reps.each do |level| %>
-      <% level.each do |office, person| %>
-        <p class="dates"><span class="k"><%= office %> :</span>
-          <% person.each do |name| %>
-          <span class="n">   <%= name %></span>
-        <% end %>
-      </p>
-      <% end %>
+<% @reps.each do |level| %>
+<% level.each do |office, person| %>
+<div class="reps-info">
+  <section class="dates">
+    <span class="k"><%= office %> :</span>
+    <% person.each do |name| %>
+    <span class="n"> <%= name %></span>
     <% end %>
-  </div>
-
+    <ul class="rep-info hidden">
+      <li class="rep-info">
+        <span class="temp">temp rep info</span>
+      </li>
+    </ul>
+  </section>
+</div>
+<% end %>
+<% end %>
 <% end %>
 
 <div class="explain">

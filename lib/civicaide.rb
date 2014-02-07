@@ -55,19 +55,20 @@ module Civicaide
     offices.each do |office_id, info|
       office = info["name"]
       ids = info["official_ids"]
-        grr = ids.map do |id|
+        oids = ids.map do |id|
           infos = officials.select do |oid, info|
             id.downcase == oid.downcase
           end
           id = infos.values_at(id.downcase)
         end
-        bah = grr.map { |n| n[0]["name"] }
+        names = oids.map { |n| n[0]["name"] }
+        urls = oids.map { |n| n[0]["urls"] }
       if info["level"] == "federal"
-        federal[office] = bah
+        federal[office] = names
       elsif info["level"] == "state"
-        state[office] = bah
+        state[office] = names
       elsif info["level"] == "other"
-        other[office] = bah
+        other[office] = names
       end
     end
     display_all << federal
