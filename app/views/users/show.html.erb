@@ -20,15 +20,22 @@
 <div class="reps-info">
   <section class="dates">
     <span class="k"><%= office %> :</span>
-    <% person.each do |name| %>
-    <span class="n"> <%= name %></span>
-    <% end %>
+    <% if person %>
+    <% person.each do |names, facts| %>
+      <% if names.kind_of?(Array) %>
+      <% names.each do |name| %>
+      <span class="n"> <%= name %></span>
+      <% end %>
+      <% end %>
     <ul class="rep-info hidden">
+      <
       <li class="rep-info">
         <span class="temp">temp rep info</span>
       </li>
     </ul>
   </section>
+    <% end %>
+    <% end %>
 </div>
 <% end %>
 <% end %>

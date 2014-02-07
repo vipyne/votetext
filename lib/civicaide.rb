@@ -52,8 +52,12 @@ module Civicaide
     federal = {}
     state = {}
     other = {}
+    fed = {}
+    sta = {}
+    oth = {}
     offices.each do |office_id, info|
       office = info["name"]
+      p "poop"
       ids = info["official_ids"]
         oids = ids.map do |id|
           infos = officials.select do |oid, info|
@@ -61,10 +65,22 @@ module Civicaide
           end
           id = infos.values_at(id.downcase)
         end
+        facts = {}
+        oids.each { |h| h.each { |h| h.each{ |k,v| facts[k] = v }}}
+        p "_____facts_____"
+        p facts
         names = oids.map { |n| n[0]["name"] }
-        urls = oids.map { |n| n[0]["urls"] }
       if info["level"] == "federal"
-        federal[office] = names
+        names.each do |name|
+        fed[name] = facts
+        end
+        p "____________________FED"
+        p fed
+        p "____________________names"
+        p names
+
+        federal[office] = fed
+        # facts = {}
       elsif info["level"] == "state"
         state[office] = names
       elsif info["level"] == "other"
@@ -74,7 +90,7 @@ module Civicaide
     display_all << federal
     display_all << state
     display_all << other
-    display_all
+    p display_all
   end
 
 end
