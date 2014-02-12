@@ -5,7 +5,10 @@
 
 <div class="election-info">
   <% @show.each do |k,v| %>
-  <p class="dates"><span class="k"><%= k %> :</span><span class="v"><%= v %></span></p>
+  <p class="dates">
+    <span class="k"><%= k %> :</span>
+    <span class="v"><%= v %></span>
+  </p>
   <% end %>
 </div>
 
@@ -14,6 +17,21 @@
 <div class="explain">
   <p><span><%= @user.name %></span>! these people represent you:</p>
 </div>
+      <p class="facts">
+  <% def factoids(facts) %>
+    <% facts.each do |k,v| %>
+      <% unless k == "name" %>
+        <span class="k"><%= k %> :</span>
+      <% if v.kind_of?(Array) %>
+      <% if v[0].kind_of?(Hash) %>
+        <% factoids(v[0]) %>
+      <% end %>
+      <% end %>
+        <span class="v"><%= v.to_s %></span>
+      </p>
+      <% end %>
+    <% end %>
+  <% end %>
 
 <% @reps.each do |level| %>
 <% level.each do |office, person| %>
@@ -21,17 +39,20 @@
   <section class="dates">
     <span class="k"><%= office %> :</span>
     <% person.each do |name| %>
-    <span class="n"> <%= name %></span>
-    <% end %>
+    <span class="n"> <%= name["name"] %></span>
     <ul class="rep-info hidden">
       <li class="rep-info">
-        <span class="temp">temp rep info</span>
+        <span class="temp">
+    <% factoids(name) %>
+    <% end %>
+  </span>
       </li>
     </ul>
   </section>
 </div>
 <% end %>
 <% end %>
+
 <% end %>
 
 <div class="explain">

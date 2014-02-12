@@ -61,8 +61,13 @@ module Civicaide
           end
           id = infos.values_at(id.downcase)
         end
-        names = oids.map { |n| n[0]["name"] }
-        urls = oids.map { |n| n[0]["urls"] }
+        facts = {}
+        names = oids.map do |array|
+          hash = array[0]
+          hash.each do |k,v|
+            facts[k] = v
+          end
+        end
       if info["level"] == "federal"
         federal[office] = names
       elsif info["level"] == "state"
