@@ -20,17 +20,29 @@
       <p class="facts">
   <% def factoids(facts) %>
     <% facts.each do |k,v| %>
+      <li class="rep-info">
+        <span class="temp">
       <% unless k == "name" %>
         <span class="k"><%= k %> :</span>
       <% if v.kind_of?(Array) %>
-      <% if v[0].kind_of?(Hash) %>
-        <% factoids(v[0]) %>
+        <% if v[0].kind_of?(Hash) %>
+          <% v.each do |h| %>
+            <% factoids(h) %>
+            <% v = nil %>
+          <% end %>
+        <% end %>
       <% end %>
-      <% end %>
-        <span class="v"><%= v.to_s %></span>
-      </p>
+        <span class="v">
+            <% if v.kind_of?(Array) %>
+              <%= v.join(",") %>
+            <% else %>
+              <%= v %></span>
+            <% end %>
+        </span>
+      </li>
       <% end %>
     <% end %>
+      </p>
   <% end %>
 
 <% @reps.each do |level| %>
@@ -41,12 +53,8 @@
     <% person.each do |name| %>
     <span class="n"> <%= name["name"] %></span>
     <ul class="rep-info hidden">
-      <li class="rep-info">
-        <span class="temp">
     <% factoids(name) %>
     <% end %>
-  </span>
-      </li>
     </ul>
   </section>
 </div>
