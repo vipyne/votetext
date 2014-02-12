@@ -21,7 +21,6 @@
   <% def factoids(facts) %>
     <% facts.each do |k,v| %>
       <li class="rep-info">
-        <span class="temp">
       <% unless k == "name" %>
         <span class="k"><%= k %> :</span>
       <% if v.kind_of?(Array) %>
@@ -38,7 +37,6 @@
             <% else %>
               <%= v %></span>
             <% end %>
-        </span>
       </li>
       <% end %>
     <% end %>
@@ -52,8 +50,10 @@
     <span class="k"><%= office %> :</span>
     <% person.each do |name| %>
     <span class="n"> <%= name["name"] %></span>
+    <% end %>
     <ul class="rep-info hidden">
-    <% factoids(name) %>
+    <% person.each do |name| %>
+    <section class="facts"><% factoids(name) %></section>
     <% end %>
     </ul>
   </section>

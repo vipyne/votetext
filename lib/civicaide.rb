@@ -70,6 +70,8 @@ module Civicaide
         end
       if info["level"] == "federal"
         federal[office] = names
+        p "names"
+        p names
       elsif info["level"] == "state"
         state[office] = names
       elsif info["level"] == "other"

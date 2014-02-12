@@ -98,6 +98,11 @@ section.dates {
   margin: .3em;
 }
 
+section.facts {
+  display: inline-block;
+  margin-left: .4em;
+}
+
 ul.hidden {
   display: none;
 }
