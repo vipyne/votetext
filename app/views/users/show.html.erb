@@ -12,57 +12,73 @@
   <% end %>
 </div>
 
-<% elsif @reps %>
-
-<div class="explain">
-  <p><span><%= @user.name %></span>! these people represent you:</p>
-</div>
-      <p class="facts">
-  <% def factoids(facts) %>
-    <% facts.each do |k,v| %>
-      <li class="rep-info">
-      <% unless k == "name" %>
-        <span class="k"><%= k %> :</span>
-      <% if v.kind_of?(Array) %>
-        <% if v[0].kind_of?(Hash) %>
-          <% v.each do |h| %>
-            <% factoids(h) %>
-            <% v = nil %>
-          <% end %>
-        <% end %>
-      <% end %>
-        <span class="v">
-            <% if v.kind_of?(Array) %>
-              <%= v.join(",") %>
-            <% else %>
-              <%= v %></span>
-            <% end %>
-      </li>
-      <% end %>
-    <% end %>
-      </p>
-  <% end %>
-
-<% @reps.each do |level| %>
-<% level.each do |office, person| %>
-<div class="reps-info">
-  <section class="dates">
-    <span class="k"><%= office %> :</span>
-    <% person.each do |name| %>
-    <span class="n"> <%= name["name"] %></span>
-    <% end %>
-    <ul class="rep-info hidden">
-    <% person.each do |name| %>
-    <section class="facts"><% factoids(name) %></section>
-    <% end %>
-    </ul>
-  </section>
-</div>
-<% end %>
-<% end %>
-
-<% end %>
-
 <div class="explain">
   <%= link_to "another address", new_user_path %>
 </div>
+
+<% elsif @reps %>
+
+<% if @reps.kind_of?(String) %>
+  <div class="explain">
+    <p><%= @reps %></p>
+  </div>
+
+  <div class="try">
+    <%= link_to "try again", new_user_path %>
+  </div>
+
+<% else %>
+
+  <div class="explain">
+    <p><span><%= @user.name %></span>! these people represent you:</p>
+  </div>
+  <p class="facts">
+    <% def factoids(facts) %>
+    <% facts.each do |k,v| %>
+    <li class="rep-info">
+      <% unless k == "name" %>
+      <span class="k"><%= k %> :</span>
+      <% if v.kind_of?(Array) %>
+      <% if v[0].kind_of?(Hash) %>
+      <% v.each do |h| %>
+      <% factoids(h) %>
+      <% v = nil %>
+      <% end %>
+      <% end %>
+      <% end %>
+      <span class="v">
+        <% if v.kind_of?(Array) %>
+        <%= v.join(",") %>
+        <% else %>
+        <%= v %></span>
+        <% end %>
+      </li>
+      <% end %>
+      <% end %>
+    </p>
+    <% end %>
+
+    <% @reps.each do |level| %>
+    <% level.each do |office, person| %>
+    <div class="reps-info">
+      <section class="dates">
+        <span class="k"><%= office %> :</span>
+        <% person.each do |name| %>
+        <span class="n"> <%= name["name"] %></span>
+        <% end %>
+        <ul class="rep-info hidden">
+          <% person.each do |name| %>
+          <section class="facts"><% factoids(name) %></section>
+          <% end %>
+        </ul>
+      </section>
+    </div>
+    <% end %>
+    <% end %>
+
+    <div class="explain">
+      <%= link_to "another address", new_user_path %>
+    </div>
+    <% end %>
+    <% end %>
+
