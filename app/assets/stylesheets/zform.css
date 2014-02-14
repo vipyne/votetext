@@ -19,6 +19,16 @@ div.explain {
   width: 270px;
 }
 
+div.try {
+  margin: 3em;
+  padding-top: 5em;
+  margin-top: 1.5em;
+  margin-right: -2em;
+  margin-bottom: 0;
+  font-family: "futura-pt", futura, helvetica, arial, sans-serif;
+  width: 270px;
+}
+
 div.election-info {
   float: left;
   margin: 3em;

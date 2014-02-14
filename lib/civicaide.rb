@@ -45,16 +45,17 @@ module Civicaide
 
   def get_reps address
     client = self.make_civic_client
-    reps = client.representatives.at address
-    offices = reps["offices"]
-    officials = reps["officials"]
-    display_all = []
-    federal = {}
-    state = {}
-    other = {}
-    offices.each do |office_id, info|
-      office = info["name"]
-      ids = info["official_ids"]
+    begin
+      reps = client.representatives.at address
+      offices = reps["offices"]
+      officials = reps["officials"]
+      display_all = []
+      federal = {}
+      state = {}
+      other = {}
+      offices.each do |office_id, info|
+        office = info["name"]
+        ids = info["official_ids"]
         oids = ids.map do |id|
           infos = officials.select do |oid, info|
             id.downcase == oid.downcase
@@ -68,20 +69,20 @@ module Civicaide
             facts[k] = v
           end
         end
-      if info["level"] == "federal"
-        federal[office] = names
-        p "names"
-        p names
-      elsif info["level"] == "state"
-        state[office] = names
-      elsif info["level"] == "other"
-        other[office] = names
+        if info["level"] == "federal"
+          federal[office] = names
+        elsif info["level"] == "state"
+          state[office] = names
+        elsif info["level"] == "other"
+          other[office] = names
+        end
       end
+      display_all << federal
+      display_all << state
+      display_all << other
+      display_all
     end
-    display_all << federal
-    display_all << state
-    display_all << other
-    display_all
+  rescue CivicAide::Client::StandardError
   end
 
 end

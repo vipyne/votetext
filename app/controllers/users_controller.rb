@@ -27,7 +27,11 @@ class UsersController < ApplicationController
     city = current_user.city
     ids = get_elections @state, city
     if current_user.submit == "get representatives"
-      @reps = get_reps current_user.full_address
+      if get_reps current_user.full_address
+        @reps = get_reps current_user.full_address
+      else
+        @reps = "sorry, that address didn't work. maybe there was a typo?"
+      end
     else
       @show = get_candidates @state, city
     end
