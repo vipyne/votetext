@@ -5,13 +5,14 @@ module Tw
   end
 
   def send_message show_hash
+    begin
     dates = []
     elections = []
     show_hash.each do |date, election|
       dates << date
       elections << election
     end
-    message = "you will receive a text on #{dates.join(', ')}
+    message = "<<ALPHA TEST>> you will receive a text on #{dates.join(', ')}
     to remind you of the #{elections.join(', ')}"
     client = self.make_twilio_client
     client.account.messages.create({
@@ -19,6 +20,8 @@ module Tw
       :to => "+#{current_user.twilio_phonenumber current_user}",
       :body => message
     })
+  end
+  rescue CivicAide::Client::StandardError
   end
 
   def send_reminder
