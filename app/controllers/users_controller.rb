@@ -23,9 +23,9 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @state = current_user.state
+    state = current_user.state
     city = current_user.city
-    ids = get_elections @state, city
+    ids = get_elections state, city
     if current_user.submit == "get representatives"
       if get_reps current_user.full_address
         @reps = get_reps current_user.full_address
@@ -33,7 +33,8 @@ class UsersController < ApplicationController
         @reps = "sorry, that address didn't work. maybe there was a typo?"
       end
     else
-      @show = get_candidates @state, city
+      @show = get_candidates state, city
+      # send_message @show
     end
   end
 

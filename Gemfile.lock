@@ -36,6 +36,11 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.0.4)
+    carmen (1.0.1)
+      unicode_utils (~> 1.4.0)
+    carmen-rails (1.0.1)
+      carmen (~> 1.0.0)
+      rails
     chronic (0.10.2)
     civic_aide (0.1.1)
       hashie
@@ -147,6 +152,7 @@ GEM
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unicode_utils (1.4.0)
 
 PLATFORMS
   ruby
@@ -155,6 +161,7 @@ DEPENDENCIES
   awesome_print
   better_errors
   binding_of_caller
+  carmen-rails
   chronic
   civic_aide
   coffee-rails (~> 3.2.1)
