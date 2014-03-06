@@ -34,7 +34,7 @@ class UsersController < ApplicationController
       end
     else
       @show = get_candidates state, city
-      # send_message @show
+      send_message @show
     end
   end
 

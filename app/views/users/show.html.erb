@@ -1,14 +1,17 @@
 
 <% if @show %>
 <div class="explain">
-  <p>sweet.  a text will be sent to <span><%= @user.phonenumber %></span> with the following info:</p>
+  <p>sweet.  a text will be sent to <span><%= @user.twilio_phonenumber @user %></span> with the following info:</p>
 </div>
 
 <div class="election-info">
   <% @show.each do |k,v| %>
   <p class="dates">
     <span class="k"><%= k %> :</span>
-    <span class="v"><%= v %></span>
+    <span class="n"><%= v %></span>
+    <ul class="rep-info hidden">
+      <section class="facts">more info to come</section>
+    </ul>
   </p>
   <% end %>
 </div>
