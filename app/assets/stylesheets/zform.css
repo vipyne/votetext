@@ -164,7 +164,8 @@ span.n:hover {
 }
 
 a,
-input[type="text"], input[type="submit"] {
+input[type="text"],
+input[type="submit"] {
   padding: 4px;
   border-radius: .3em;
   box-shadow: none;
@@ -179,8 +180,8 @@ input[type="text"] {
   width: 100%;
   padding-top: 7px;
   font-size: 15px;
-  line-height: 0;
-  margin: .4em;
+  margin: .3em;
+  color: rgba(50,50,50,1) !important;
 }
 
 a,
