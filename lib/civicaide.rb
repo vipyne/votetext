@@ -4,16 +4,33 @@ module Civicaide
     CivicAide::Client.new ENV["GOOGLE_API_KEY"]
   end
 
+  def regions state
+    us = Carmen::Country.named('United States')
+    if state.size > 2
+      the_state = state.downcase.capitalize!
+      state_name = us.subregions.named the_state
+      code = state_name.code
+    else
+      code = state.upcase
+    end
+    code
+  end
+
   def get_elections state, city
     client = self.make_civic_client
+    state_code = regions state
     users_elections = []
     elections = client.elections.all
     all_elections = elections["elections"]
     all_elections.find_all do |election|
       name = election.name
       id = election.id
-      if /#{state}/.match(name) || /#{city}/.match(name)
-        users_elections << id
+      date = election.election_day[0,4].to_i
+      if date >= 2013
+        p election.name
+        if /#{state}/.match(name) || /#{state_code}/.match(name) || /#{city}/.match(name)
+          users_elections << id
+        end
       end
     end
     users_elections

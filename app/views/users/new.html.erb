@@ -1,30 +1,25 @@
-<div class="explain">
-  <p>enter your information to see who represents you or to receive a text* the day before a local election in your neighborhood.</p>
-  <p>{* 2014 election data is not actually available yet and texting not set up... check back soon!}</p>
+<div class="explain large-6 medium-6 columns">
+  <p>enter your address to see your representatives.  enter your cell phone number or to receive a text* the day before a local election in your neighborhood.</p>
+  <p>note: 2014 election data is not available for all states yet.  if there is no election data available for your state, contact those representatives you just found and tell them to furnish info to the Google Civic Information API!</p>
+  <h4 class="centered"><< US ADDRESSES ONLY >></h4>
 </div>
 
-<div class="container">
+<div class="container large-6 medium-6 columns">
 
   <div class="new_user">
     <%= form_for @user, :method => 'post' do |f| %>
-       <%= f.label :name %>
-       <%= f.text_field :name, :value => "betty white" %>
-       <%= f.label "phone number" %>
-       <%= f.text_field :phonenumber, :value => "16104204483" %>
-       <%= f.label "address line 1" %>
-       <%= f.text_field :address_line1, :value => "810 grand"  %>
-       <%= f.label "address line 2" %>
-       <%= f.text_field :address_line2 %>
-       <%= f.label "address line 3" %>
-       <%= f.text_field :address_line3 %>
+       <%= f.label "address" %>
+       <%= f.text_field :address_line1, :placeholder => "123 grand"  %>
        <%= f.label :city %>
-       <%= f.text_field :city, :value => "Brooklyn"  %>
+       <%= f.text_field :city, :placeholder => "brooklyn"  %>
        <%= f.label :state %>
-       <%= f.text_field :state, :value => "NY"  %>
+       <%= f.text_field :state, :placeholder => "NY"  %>
        <%= f.label "zip code" %>
-       <%= f.text_field :zip_code, :value => "11211"  %>
+       <%= f.text_field :zip_code, :placeholder => "12345"  %>
        <%= f.submit "get representatives" %>
        <p id="or">or</p>
+       <%= f.label "phone number" %>
+       <%= f.text_field :phonenumber, :placeholder => "123-456-7899" %>
        <%= f.submit "get election texts" %>
     <% end %>
   </div>

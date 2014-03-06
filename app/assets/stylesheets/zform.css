@@ -1,22 +1,48 @@
+@font-face {
+font-family: thisFont;
+src: url(News Gothic Bold BT.woff);
+}
+
+.row {
+  padding-left: 6em;
+  padding-right: 6em;
+}
+
+nav.top-bar {
+  text-align:center;
+  margin-bottom: 1em;
+}
+
+section.top-bar-section {
+  display: inline-block;
+}
+
+h4{
+  font-size: 14px;
+}
+
+body {
+  /*font-family: "futura-pt", futura, helvetica, arial, sans-serif !important;*/
+  /*font-family: thisFont !important;*/
+  color: #000 !important;
+}
+
 .all {
   position: relative;
 }
 
 div.container {
-  margin: 3em;
-  margin-top: 1.5em;
-  font-family: "futura-pt", futura, helvetica, arial, sans-serif;
+/*  margin: 3em;
+  margin-top: 1.5em;*/
   display: inline-block;
 }
 
 div.explain {
-  float: left;
-  margin: 3em;
+  /*float: left;*/
+  /*margin: 3em;*/
   margin-top: 1.5em;
-  margin-right: -2em;
-  margin-bottom: 0;
-  font-family: "futura-pt", futura, helvetica, arial, sans-serif;
-  width: 270px;
+  /*margin-right: -2em;*/
+  /*margin-bottom: 0;*/
 }
 
 div.try {
@@ -25,7 +51,6 @@ div.try {
   margin-top: 1.5em;
   margin-right: -2em;
   margin-bottom: 0;
-  font-family: "futura-pt", futura, helvetica, arial, sans-serif;
   width: 270px;
 }
 
@@ -35,7 +60,6 @@ div.election-info {
   margin-top: .5em;
   margin-right: -2em;
   margin-bottom: 0;
-  font-family: "futura-pt", futura, helvetica, arial, sans-serif;
   width: 100%;
 }
 
@@ -45,20 +69,21 @@ div.reps-info {
   margin-top: 0;
   margin-right: -2em;
   margin-bottom: 0;
-  font-family: "futura-pt", futura, helvetica, arial, sans-serif;
   width: 100%;
 }
 
 nav.heading {
   background-color: black;
-  padding: 1px;
+}
+
+nav {
+  background-color: black;
 }
 
 h1 {
-  font-family: "futura-pt", futura, helvetica, arial, sans-serif;
   margin: 0;
-  margin-left: 20px;
-  margin-top: 10px;
+  /*margin-left: 20px;*/
+  /*margin-top: 10px;*/
   font-size: 27px;
   color: white;
   display: inline-block;
@@ -139,11 +164,12 @@ span.n:hover {
 }
 
 a,
-input[type="text"], input[type="submit"] {
+input[type="text"],
+input[type="submit"] {
   padding: 4px;
   border-radius: .3em;
   box-shadow: none;
-  font-family: "futura-pt", futura, helvetica, arial, sans-serif;
+  /*font-family: "futura-pt", futura, helvetica, arial, sans-serif;*/
   font-size: 15px;
   margin-bottom: 9px;
   color: rgba(50,50,50,.4);
@@ -154,8 +180,8 @@ input[type="text"] {
   width: 100%;
   padding-top: 7px;
   font-size: 15px;
-  line-height: 0;
-  margin: .4em;
+  margin: .3em;
+  color: rgba(50,50,50,1) !important;
 }
 
 a,
@@ -179,7 +205,7 @@ a {
 }
 
 p#or {
-  display: inline-block;
+  text-align: center;
   margin-right: 3px;
   margin-left: 3px;
 }
@@ -197,17 +223,24 @@ input[type="submit"]:active {
 
 label {
   margin-bottom: 2px;
-  margin-right: 14em;
+  /*margin-right: 14em;*/
   border: 1px solid #ccc;
   border-radius: .3em;
   padding: .4em;
   padding-bottom: 2em;
   margin-bottom: -2em;
+  width: 110px;
+  font-style: italic;
+  text-transform: lowercase;
 }
 
 div.new_user {
   position: relative;
-  margin-top: 0;
+  margin-top: 1.6em;
+}
+
+.centered {
+  text-align: center;
 }
 
 form {
@@ -215,6 +248,12 @@ form {
 }
 
 @media only screen and (max-width: 320px) {
+
+  .row {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   input[type="submit"] {
     margin-right: 23%;
     margin-left: 23%;

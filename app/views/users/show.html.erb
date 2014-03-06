@@ -1,18 +1,22 @@
+
 <% if @show %>
 <div class="explain">
-  <p>sweet.  a text will be sent to <span><%= @user.name %></span>, at <span><%= @user.phonenumber %></span> with the following info:</p>
+  <p>sweet.  a text will be sent to <span><%= @user.twilio_phonenumber @user %></span> with the following info:</p>
 </div>
 
 <div class="election-info">
   <% @show.each do |k,v| %>
   <p class="dates">
     <span class="k"><%= k %> :</span>
-    <span class="v"><%= v %></span>
+    <span class="n"><%= v %></span>
+    <ul class="rep-info hidden">
+      <section class="facts">more info to come</section>
+    </ul>
   </p>
   <% end %>
 </div>
 
-<div class="explain">
+<div class="explain large-12 columns text-center">
   <%= link_to "another address", new_user_path %>
 </div>
 
@@ -30,7 +34,7 @@
 <% else %>
 
   <div class="explain">
-    <p><span><%= @user.name %></span>! these people represent you:</p>
+    <p>these people represent you:</p>
   </div>
   <p class="facts">
     <% def factoids(facts) %>
@@ -76,9 +80,8 @@
     <% end %>
     <% end %>
 
-    <div class="explain">
+    <div class="explain large-12 columns text-center">
       <%= link_to "another address", new_user_path %>
     </div>
     <% end %>
     <% end %>
-
