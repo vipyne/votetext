@@ -56,12 +56,7 @@ div.explain {
 }
 
 div.try {
-  margin: 3em;
-  padding-top: 5em;
-  margin-top: 1.5em;
-  margin-right: -2em;
-  margin-bottom: 0;
-  width: 270px;
+  margin-top: 2em;
 }
 
 div.election-info {
@@ -190,8 +185,14 @@ p#or {
 
 /* links ///////////////////////////////////////////////////////////////////////////////////*/
 
+a:active,
+a:focus,
 a {
   color: rgba(50,50,50,.7);
+}
+
+a:hover {
+  color: rgba(50,50,50,.3);
 }
 
 input[type="submit"] {
