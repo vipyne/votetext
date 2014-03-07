@@ -1,5 +1,5 @@
 <div class="explain large-6 medium-6 columns">
-  <p>enter your address to find your representatives.  or enter your cell phone number to receive a text the day before a local election in your neighborhood.</p>
+  <p>enter your address to find your representatives or enter your cell phone number to receive a text the day before a local election in your neighborhood.</p>
   <p>note: 2014 election data is not available for all states yet.  if there is no election data available for your state, contact those representatives you just found and tell them to furnish info to the Google Civic Information API!</p>
   <h4 class="centered"><< US ADDRESSES ONLY >></h4>
 </div>
@@ -8,19 +8,13 @@
 
   <div class="new_user">
     <%= form_for @user, :method => 'post' do |f| %>
-       <%= f.label "address" %>
-       <%= f.text_field :address_line1, :placeholder => "123 grand"  %>
-       <%= f.label :city %>
-       <%= f.text_field :city, :placeholder => "brooklyn"  %>
-       <%= f.label :state %>
-       <%= f.text_field :state, :placeholder => "NY"  %>
-       <%= f.label "zip code" %>
-       <%= f.text_field :zip_code, :placeholder => "12345"  %>
-       <%= f.submit "get representatives" %>
-       <p id="or">or</p>
-       <%= f.label "phone number" %>
-       <%= f.text_field :phonenumber, :placeholder => "123-456-7899" %>
-       <%= f.submit "get election texts" %>
+      <%= f.text_field :address_line1, :placeholder => "address", :value => "810 grand" %>
+      <%= f.text_field :city, :placeholder => "city", :value => "brooklyn"  %>
+      <%= f.text_field :state, :placeholder => "state", :value => "ny"  %>
+      <%= f.text_field :zip_code, :placeholder => "zip code", :value => "11211"  %>
+      <%= f.submit "get representatives", {:class => "button"} %>
+      <p id="or"></p>
+      <%= render "shared/elections" %>
     <% end %>
   </div>
 

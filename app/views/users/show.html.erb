@@ -17,7 +17,7 @@
 </div>
 
 <div class="explain large-12 columns text-center">
-  <%= link_to "another address", new_user_path %>
+  <%= link_to "another address", new_user_path, {:class => "button-type"} %>
 </div>
 
 <% elsif @reps %>
@@ -34,7 +34,7 @@
 <% else %>
 
   <div class="explain">
-    <p>these people represent you:</p>
+    <p>your representatives:</p>
   </div>
   <p class="facts">
     <% def factoids(facts) %>
@@ -79,9 +79,12 @@
     </div>
     <% end %>
     <% end %>
-
-    <div class="explain large-12 columns text-center">
-      <%= link_to "another address", new_user_path %>
+    <div class="container large-6 medium-6 columns">
+      <div class="new_user">
+        <%= render "shared/elections" %>
+      <%= link_to "another address", new_user_path, {:class => "button-type another"} %>
+      </div>
     </div>
+
     <% end %>
     <% end %>
