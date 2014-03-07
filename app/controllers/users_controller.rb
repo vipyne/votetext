@@ -42,19 +42,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # def update
-  #   @user = current_user
-  #   state = current_user.state
-  #   city = current_user.city
-  #   if get_candidates state, city
-  #     @show = get_candidates state, city
-  #     send_message @show
-  #   else
-  #     @show = "sorry, that address didn't work. maybe there was a typo?"
-  #   end
-  #   redirect_to user_path @user
-  # end
-
   helper_method :current_user
   helper_method :login
 

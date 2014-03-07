@@ -28,7 +28,7 @@ module Civicaide
       name = election.name
       id = election.id
       date = election.election_day[0,4].to_i
-      if date >= 2013
+      if date >= 2014
         p election.name
         if /#{state}/.match(name) || /#{state_code}/.match(name) || /#{city}/.match(name)
           users_elections << id

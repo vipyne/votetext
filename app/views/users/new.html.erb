@@ -8,10 +8,10 @@
 
   <div class="new_user">
     <%= form_for @user, :method => 'post' do |f| %>
-      <%= f.text_field :address_line1, :placeholder => "address", :value => "810 grand" %>
-      <%= f.text_field :city, :placeholder => "city", :value => "brooklyn"  %>
-      <%= f.text_field :state, :placeholder => "state", :value => "ny"  %>
-      <%= f.text_field :zip_code, :placeholder => "zip code", :value => "11211"  %>
+      <%= f.text_field :address_line1, :placeholder => "address"#, :value => "810 grand" %>
+      <%= f.text_field :city, :placeholder => "city"#, :value => "brooklyn"  %>
+      <%= f.text_field :state, :placeholder => "state"#, :value => "ny"  %>
+      <%= f.text_field :zip_code, :placeholder => "zip code"#, :value => "11211"  %>
       <%= f.submit "get representatives", {:class => "button"} %>
       <p id="or"></p>
       <%= render "shared/elections" %>

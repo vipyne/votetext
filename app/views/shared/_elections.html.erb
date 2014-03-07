@@ -1,6 +1,6 @@
 <div class="new_user">
   <%= form_for @user, :method => 'post' do |f| %>
-    <%= f.text_field :phonenumber, :placeholder => "phone number", :value => "6104204483" %>
+    <%= f.text_field :phonenumber, :placeholder => "phone number"#, :value => "6104204483" %>
     <%= f.submit "get election texts", {:class => "button"} %>
   <% end %>
 </div>
