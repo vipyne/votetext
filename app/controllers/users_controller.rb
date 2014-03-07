@@ -25,10 +25,10 @@ class UsersController < ApplicationController
     @user = current_user
     state = current_user.state
     city = current_user.city
-    ids = get_elections state, city
     if current_user.submit == "get representatives"
       if get_reps current_user.full_address
         @reps = get_reps current_user.full_address
+        @user.update_attributes :submit => "get representatives"
       else
         @reps = "sorry, that address didn't work. maybe there was a typo?"
       end

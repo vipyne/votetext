@@ -21,9 +21,17 @@
 </header>
 
 <body>
-  <div class="row">
-    <div class="large-12 columns">
-      <%= yield %>
+  <div class="wrapper">
+    <div class="row">
+      <div class="large-12 columns">
+        <%= yield %>
+      </div>
+    </div>
+    <div class="push"></div>
+  </div>
+  <div class="footer">
+    <div class="row text-center">
+      <footer>made by <a href="https://github.com/vipyne">vipyne</a></footer>
     </div>
   </div>
 </body>
