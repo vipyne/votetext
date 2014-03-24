@@ -18,7 +18,11 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+    if current_user
+      @user = current_user
+    else
+      @user = User.new
+    end
   end
 
   def show
@@ -40,6 +44,11 @@ class UsersController < ApplicationController
         @show = "sorry, that address didn't work. maybe there was a typo?"
       end
     end
+  end
+
+  def edit
+    @user = current_user
+    redirect_to new_user_path
   end
 
   helper_method :current_user
