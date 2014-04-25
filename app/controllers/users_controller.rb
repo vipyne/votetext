@@ -5,8 +5,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create params[:user]
-    if @user.present?
+    @user = User.new params[:user]
+    if @user.valid?
       if params[:commit] == "get representatives"
         @user.update_attributes :submit => "get representatives"
       end
