@@ -5,10 +5,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create params[:user]
+    @user = User.new params[:user]
     if @user.present?
-      if params[:commit] == "get representatives"
-        @user.update_attributes :submit => "get representatives"
+      if get_reps @user.full_address
+        @user.save
+        if params[:commit] == "get representatives"
+          @user.update_attributes :submit => "get representatives"
+        end
       end
       login @user
       redirect_to user_path @user
@@ -18,7 +21,11 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+    if current_user
+      @user = current_user
+    else
+      @user = User.new
+    end
   end
 
   def show
@@ -41,6 +48,11 @@ class UsersController < ApplicationController
       end
     end
   end
+
+  # def edit
+  #   @user = current_user
+  #   redirect_to new_user_path
+  # end
 
   helper_method :current_user
   helper_method :login

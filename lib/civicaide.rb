@@ -104,7 +104,7 @@ module Civicaide
       display_all << other
       display_all
     end
-  rescue CivicAide::Client::StandardError
+    rescue CivicAide::Client::StandardError
   end
 
 end
